@@ -5,3 +5,13 @@ import uuid
 
 def generate_uuid():
     return str(uuid.uuid4())
+
+Base = declarative_base()
+
+class Pet(Base):
+    __tablename__='pets'
+    petId = Column('petId',String,primary_key=True,default=generate_uuid)
+    petName = Column('petName',String)
+    petBreed = Column('petBreed',String)
+    petAge = Column('petAge',Integer)
+    
