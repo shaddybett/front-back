@@ -14,4 +14,6 @@ class Pet(Base):
     petName = Column('petName',String)
     petBreed = Column('petBreed',String)
     petAge = Column('petAge',Integer)
-    
+
+    def __init__(self,petName,petBreed,petAge):
+        
