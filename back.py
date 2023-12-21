@@ -29,4 +29,10 @@ def add_pet(petName,petBreed,petAge):
         session.add(new_pet)
         session.commit()
 
-db_url='sqlite:///petDB.db'          
+db_url='sqlite:///petDB.db' 
+engine = create_engine(db_url)
+Base.metadata.create_all(bind=engine)
+Session = sessionmaker(bind=engine)
+session = Session()   
+
+
