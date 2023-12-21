@@ -16,6 +16,7 @@ class Pet(Base):
     petAge = Column('petAge',Integer)
 
     def __init__(self,petName,petBreed,petAge):
+        self.petAge = None
         self.petName = petName
         self.petBreed = petBreed
         self.petAge = petAge
