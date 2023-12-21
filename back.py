@@ -28,7 +28,12 @@ def add_pet(session,petName,petBreed,petAge):
         new_pet = Pet(petName,petBreed,petAge)
         session.add(new_pet)
         session.commit()
-
+def increment_ages(session):
+    all_pets = session.query(Pet).all()
+    for pet in all_pets:
+        pet.petAge +=1      
+    session.commit()
+    print('All ages incremented by 1')     
 db_url='sqlite:///petDB.db' 
 engine = create_engine(db_url)
 Base.metadata.create_all(bind=engine)
@@ -36,7 +41,8 @@ Session = sessionmaker(bind=engine)
 session = Session()   
 
 with Session() as session:
-    petName = 'Sky'
-    petBreed='Chihuahua'
-    petAge = 6
-    add_pet(session,petName,petBreed,petAge)
+    petName = 'Blue'
+    petBreed='Alex'
+    petAge = 10
+add_pet(session,petName,petBreed,petAge)
+increment_ages(session)    
