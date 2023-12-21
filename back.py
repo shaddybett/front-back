@@ -10,7 +10,7 @@ Base = declarative_base()
 
 class Pet(Base):
     __tablename__='pets'
-    petId = Column('petId',String,primary_key=True,default=generate_uuid)
+    petId = Column('petId',String,primary_key=True,default=generate_uuid,onupdate=generate_uuid)
     petName = Column('petName',String)
     petBreed = Column('petBreed',String)
     petAge = Column('petAge',Integer)
@@ -35,7 +35,8 @@ Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
 session = Session()   
 
-petName = 'Sky'
-petBreed='Chihuahua'
-petAge = 6
-add_pet(petName,petBreed,petAge)
+with Session() as session:
+    petName = 'Sky'
+    petBreed='Chihuahua'
+    petAge = 6
+    add_pet(session,petName,petBreed,petAge)
