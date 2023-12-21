@@ -21,4 +21,11 @@ class Pet(Base):
         self.petAge = petAge
 
 def add_pet(petName,petBreed,petAge):
+    exists = session.query(Pet).filter_by(petName=petName).first()
+    if exists:
+        print('Name already exists')
+    else:
+        new_pet = Pet(petName,petBreed,petAge)
+        session.add(new_pet)
+        session.commit()
             
