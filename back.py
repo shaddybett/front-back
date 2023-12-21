@@ -28,4 +28,5 @@ def add_pet(petName,petBreed,petAge):
         new_pet = Pet(petName,petBreed,petAge)
         session.add(new_pet)
         session.commit()
-            
+
+db_url='sqlite:///petDB.db'          
