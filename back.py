@@ -54,8 +54,8 @@ add_pet(session, petName, petBreed, petAge)
 # Example: Increment ages
 increment_ages(session)
 
-# Example: Update existing pets to mark them as vaccinated
-pets_to_update = session.query(Pet).filter_by(is_vaccinated=False).all()
-for pet in pets_to_update:
-    pet.is_vaccinated = True
-session.commit()
+# # Example: Update existing pets to mark them as vaccinated
+# pets_to_update = session.query(Pet).filter_by(is_vaccinated=False).all()
+# for pet in pets_to_update:
+#     pet.is_vaccinated = True
+# session.commit()
