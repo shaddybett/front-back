@@ -49,7 +49,7 @@ session = Session()
 petName = 'Wise'
 petBreed = 't9'
 petAge = 12
-# add_pet(session, petName, petBreed, petAge)
+add_pet(session, petName, petBreed, petAge)
 
 # Example: Increment ages
 increment_ages(session)
