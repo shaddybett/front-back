@@ -14,13 +14,12 @@ class Pet(Base):
     petName = Column('petName', String)
     petBreed = Column('petBreed', String)
     petAge = Column('petAge', Integer)
-    is_vaccinated = Column('is_vaccinated', Boolean, default=False)
 
-    def __init__(self, petName, petBreed, petAge, is_vaccinated=False):
+    def __init__(self, petName, petBreed,petAge):
         self.petName = petName
         self.petBreed = petBreed
         self.petAge = petAge
-        self.is_vaccinated = is_vaccinated
+     
 
 def add_pet(session, petName, petBreed, petAge):
     exists = session.query(Pet).filter_by(petName=petName).first()
@@ -31,12 +30,7 @@ def add_pet(session, petName, petBreed, petAge):
         session.add(new_pet)
         session.commit()
 
-def increment_ages(session):
-    all_pets = session.query(Pet).all()
-    for pet in all_pets:
-        pet.petAge += 1      
-    session.commit()
-    print('All ages incremented by 1')     
+    
 
 # Set up the database and session
 db_url = 'sqlite:///petDB.db' 
@@ -49,13 +43,4 @@ session = Session()
 petName = 'Wise'
 petBreed = 't9'
 petAge = 12
-# add_pet(session, petName, petBreed, petAge)
-
-# Example: Increment ages
-increment_ages(session)
-
-# Example: Update existing pets to mark them as vaccinated
-pets_to_update = session.query(Pet).filter_by(is_vaccinated=False).all()
-for pet in pets_to_update:
-    pet.is_vaccinated = True
-session.commit()
+add_pet(session, petName, petBreed, petAge)
