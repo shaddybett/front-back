@@ -16,11 +16,11 @@ class Pet(Base):
     petAge = Column('petAge', Integer)
     is_vaccinated = Column('is_vaccinated', Boolean, default=False)
 
-    def __init__(self, petName, petBreed, petAge, is_vaccinated=False):
+    def __init__(self, petName, petBreed,petAge):
         self.petName = petName
         self.petBreed = petBreed
         self.petAge = petAge
-        self.is_vaccinated = is_vaccinated
+     
 
 def add_pet(session, petName, petBreed, petAge):
     exists = session.query(Pet).filter_by(petName=petName).first()
@@ -45,11 +45,3 @@ petName = 'Wise'
 petBreed = 't9'
 petAge = 12
 add_pet(session, petName, petBreed, petAge)
-
-
-
-# # Example: Update existing pets to mark them as vaccinated
-# pets_to_update = session.query(Pet).filter_by(is_vaccinated=False).all()
-# for pet in pets_to_update:
-#     pet.is_vaccinated = True
-# session.commit()
