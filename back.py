@@ -14,7 +14,6 @@ class Pet(Base):
     petName = Column('petName', String)
     petBreed = Column('petBreed', String)
     petAge = Column('petAge', Integer)
-    is_vaccinated = Column('is_vaccinated', Boolean, default=False)
 
     def __init__(self, petName, petBreed,petAge):
         self.petName = petName
