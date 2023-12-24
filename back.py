@@ -33,7 +33,7 @@ def add_pet(session, petName, petBreed, petAge):
     
 
 # Set up the database and session
-# db_url = 'sqlite:///petDB.db' 
+db_url = 'sqlite:///petDB.db' 
 engine = create_engine(db_url)
 Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
