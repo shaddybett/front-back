@@ -40,7 +40,7 @@ Session = sessionmaker(bind=engine)
 session = Session()   
 
 # Example: Add a new pet
-petName = 'Wise'
-petBreed = 't9'
-petAge = 12
+petName = 'Amber'
+petBreed = 'German Shepherd'
+petAge = 11
 add_pet(session, petName, petBreed, petAge)
