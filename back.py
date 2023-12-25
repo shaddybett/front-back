@@ -41,6 +41,6 @@ session = Session()
 
 # Example: Add a new pet
 petName = 'Amber'
-petBreed = 'German'
+petBreed = 'German Shepherd'
 petAge = 11
 add_pet(session, petName, petBreed, petAge)
