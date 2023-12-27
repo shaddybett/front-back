@@ -38,7 +38,7 @@ def delete_pet(session,petName):
         print(f'{petName} deleted') 
     else:
         print(f'{petName} not found') 
-                          
+
 
 # Set up the database and session
 db_url = 'sqlite:///petDB.db' 
@@ -51,3 +51,4 @@ petName = 'Kai'
 petBreed = 'German Shepherd'
 petAge = 12
 add_pet(session, petName, petBreed, petAge)
+delete_pet(session,'Kai')
