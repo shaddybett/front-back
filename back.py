@@ -29,6 +29,16 @@ def add_pet(session, petName, petBreed, petAge):
         new_pet = Pet(petName, petBreed, petAge)
         session.add(new_pet)
         session.commit()
+def delete_pet(session,petName):
+    pet = session.query(Pet).filter_by(petName=petName).all()
+    if pet:
+        if pet.petName== 'Kai':
+            session.delete(pet.petName)
+        else:
+            print('Not found')
+    else:
+        print('No pet with such name was found')
+        session.commit()                    
 
     
 
