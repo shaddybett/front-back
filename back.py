@@ -53,4 +53,4 @@ petName = 'Kai'
 petBreed = 'German Shepherd'
 petAge = 12
 # add_pet(session, petName, petBreed, petAge)
-delete_pet(session,'Kai')
+delete_pet(session,'fhy')
