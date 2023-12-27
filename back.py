@@ -29,7 +29,16 @@ def add_pet(session, petName, petBreed, petAge):
         new_pet = Pet(petName, petBreed, petAge)
         session.add(new_pet)
         session.commit()
-                
+
+def delete_pet(session,petName):
+    pet_to_delete = session.query(Pet).filter_by(petName=petName).first()
+    if pet_to_delete:
+        session.delete(pet_to_delete)
+        session.commit
+        print(f'{petName} deleted') 
+    else:
+        print(f'{petName} not found') 
+                          
 
 # Set up the database and session
 db_url = 'sqlite:///petDB.db' 
