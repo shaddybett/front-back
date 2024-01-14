@@ -19,6 +19,7 @@ def index():
     return render_template('index.html')
 @app.route('/about')
 def about():
+    return
 
 # Use app.app_context() to create the tables within the application context
 with app.app_context():
