@@ -17,6 +17,7 @@ class Todo(db.Model):
 @app.route('/')
 def index():
     return render_template('index.html')
+@app.route('/about')
 
 
 # Use app.app_context() to create the tables within the application context
